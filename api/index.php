@@ -21,10 +21,10 @@ class Result
 		if($message != null)
 		{
 			$this->_meta['msg'] = $message;
- 		}
+		}
 
- 		$result = array('meta' => array('success' => $success,'count' => count($this->_data),'message' => $message) ,'data' => $this->_data);
- 		
+		$result = array('meta' => array('success' => $success,'count' => count($this->_data),'message' => $message) ,'data' => $this->_data);
+		
 		$this->result = $result;
 	}
 
@@ -140,10 +140,10 @@ class Api
 		$sanitizedData = array();
 
 		foreach ($dataSet as $key => $value)
-    	{
-    		$sanitizedData[$key] = strip_tags($value);
-        }
-    	return $sanitizedData;
+		{
+			$sanitizedData[$key] = strip_tags($value);
+		}
+		return $sanitizedData;
 	}
 	/**
 	 * _sanitizeData 
