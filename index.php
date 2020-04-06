@@ -37,7 +37,7 @@
 				<input type="email" id="email" name="email" />
 			</div>
 			<div>
-				<label for="email">Land:</label>
+				<label for="email">Land:</label><br>
 				  	<input type="text" id="country" />
 					<input type="hidden" id="country_code"  name = 'country_code'/>
 
