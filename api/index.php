@@ -3,7 +3,7 @@
 define('POST_METHOD','POST');
 define('GET_METHOD','GET');
 
-class result
+class Result
 {
 	private $_data;
 	private $_meta;
@@ -82,19 +82,19 @@ class Api
 
 					if($stmt->execute($sanitizedData))
 					{	
-						$result = new result(null,true);
+						$result = new Result(null,true);
 						return $result->getResult();
 					}
 					else
 					{
-						 $result = new result(null,false,'Er is iets misgegaan, probeer het later nog eens');
+						 $result = new Result(null,false,'Er is iets misgegaan, probeer het later nog eens');
 						 return $result->getResult();
 					}
 				}
 				else
 				{
 
-					$result = new result(null,false,'De volgende velden dienen nog ingevuld te worden: '. implode(',', $forgottenFields));	
+					$result = new Result(null,false,'De volgende velden dienen nog ingevuld te worden: '. implode(',', $forgottenFields));	
 					return $result->getResult();
 				}
 			}
@@ -119,7 +119,7 @@ class Api
 			$sth -> execute();
 
 			$data = $sth->fetchAll(PDO::FETCH_OBJ);
-			$result = new result($data,true);
+			$result = new Result($data,true);
 
 			return $result->getResult();
 		}
@@ -189,7 +189,7 @@ class Api
 	}
 }
 
-class requestHandler
+class RequestHandler
 {
 	private $_request;
 	private $path;
@@ -239,10 +239,10 @@ class requestHandler
 
 
 
-$requestHandler = new requestHandler();
+$RequestHandler = new RequestHandler();
 
 
-$result = $requestHandler->handleRequest($_SERVER);
+$result = $RequestHandler->handleRequest($_SERVER);
 print json_encode($result);
 
 
